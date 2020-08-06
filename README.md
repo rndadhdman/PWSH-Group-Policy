@@ -16,7 +16,7 @@ This script grabs the applied group policy information to the computer in questi
 
 Once again, if the comptuer is powered off, then you will be greated with a warning.
 
-<h2>Get-GroupPolicyName<h2>
+<h2>Get-GroupPolicyName</h2>
 Often times I can't remember all the names of group policy but I will remember parts of the name. In this script I can quickly search for group policy names.
 
 <h2>Search-UsersOnComputerForGPO</h2>
