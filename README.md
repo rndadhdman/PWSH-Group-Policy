@@ -1,4 +1,4 @@
-# PWSH-Group-Policy
+# DPB_Group_Policy
 Here we have a few little scripts designed to help with group policy. This is my first public script, please let me know if I need to fix things. 
 
 <h3>Modules Needed</h3>
