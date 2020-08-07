@@ -12,7 +12,7 @@ function Get-UsersGPO {
 		    if you choose to use a credential, this is where you would add this information.
             if you choose not to use credential, then the script will use the currently running credentials. 
 		.EXAMPLE
-            Get-UsersGPO -computernames <server1>,<server2> -usernames bob,jim,frank
+            Get-UsersGPO -computernames [string[]] -usernames [string[]]
 
             The command will search each server for bob's group policy information, then jim, then franks.
 
@@ -28,7 +28,7 @@ function Get-UsersGPO {
             LinkOrder         : 1
             NoOverride        : False
 		.EXAMPLE
-            Get-UsersGPO -computernames <server1>,<server2> -usernames bob,jim,frank -Credientials (get-credential)
+            Get-UsersGPO -computernames [string[]] -usernames [string[]] -Credientials (get-credential)
 
             The command will search each server for bob's group policy information, then jim, then franks using the credentials of the supplied credentials. 
             
@@ -44,10 +44,10 @@ function Get-UsersGPO {
             LinkOrder         : 1
             NoOverride        : False
 		.LINK
-		    https://bolding.us
+		    https://github.com/boldingdp/
 		.NOTES
             Author: David Bolding
-            Site: https://www.bolding.us
+            Site: https://github.com/boldingdp/
 	#>   
     [cmdletbinding()]
     param (
@@ -160,20 +160,20 @@ function Get-PCGPO {
 		    if you choose to use a credential, this is where you would add this information.
             if you choose not to use credential, then the script will use the currently running credentials. 
 		.EXAMPLE
-		    Get-PCGPO -ComputerNames <Server1>,<Server2>
+		    Get-PCGPO -ComputerNames [string[]]
 
             This will use the currently running login to access server 1 and server 2. Then it 
             will produce the GPO information.
 		.EXAMPLE
-            Get-PCGPO -ComputerNames <OffDomainComputer> -Credentials (get-credential)		    
+            Get-PCGPO -ComputerNames [string[]] -Credentials (get-credential)		    
 
             This will prompt you to put in the credential information needed to access the off domain
             computer and apply the gpo settings to it. 
 		.LINK
-		    https://bolding.us
+		    https://github.com/boldingdp/
 		.NOTES
             Author: David Bolding
-            Site: https://www.bolding.us
+            Site: https://github.com/boldingdp/
 	#>    
     [cmdletbinding()]
     param (
@@ -296,10 +296,10 @@ function Get-GroupPolicyName {
             ComputerVersion  :
             WmiFilter        :
 		.LINK
-		    https://bolding.us
+		    https://github.com/boldingdp/
 		.NOTES
             Author: David Bolding
-            Site: https://www.bolding.us
+            Site: https://github.com/boldingdp/
 	#> 
     [CmdletBinding()]
     param (
@@ -316,32 +316,22 @@ function Get-GroupPolicyName {
 function Search-UsersOnComputerForGPO {
     <#
 		.SYNOPSIS
-		    Finds a group policy by a name given.
+		    Finds all users with a given gpo name on target server.
 		.DESCRIPTION
-		    If you can't remember a group policy's full name, yo ucan find it with this script. 
+		    Finds all users with a given gpo name on target server.
+        .PARAMETER Computername
+            Target computer to search the gpo of. 
         .PARAMETER GroupPolicyName
             The name you are searching for. 
+        .PARAMETER Credientals
+            Credientals to use on target computer
 		.EXAMPLE
-            Get-GroupPolicyName -GroupPolicyName "Firewall"
-
-            Finds the group policy with the matching name. 
             
-            DisplayName      : Domain Firewall
-            DomainName       : Domain
-            Owner            : User
-            Id               : 00000000-0000-0000-0000-000000000000
-            GpoStatus        : AllSettingsEnabled
-            Description      :
-            CreationTime     : 7/9/2003 11:03:33 AM
-            ModificationTime : 7/9/2003 12:55:20 PM
-            UserVersion      :
-            ComputerVersion  :
-            WmiFilter        :
 		.LINK
-		    https://bolding.us
+		    https://github.com/boldingdp/
 		.NOTES
             Author: David Bolding
-            Site: https://www.bolding.us
+            Site: https://github.com/boldingdp/
 	#> 
     [cmdletbinding()]
     param (
@@ -386,5 +376,4 @@ function Search-UsersOnComputerForGPO {
     else {
         Write-Warning "$Computername offline."
     }
-    
 }
