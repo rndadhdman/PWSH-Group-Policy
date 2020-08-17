@@ -7,7 +7,12 @@ You will need the active directory and the grouppolicy modules.
 <h2>Get-ComputerPCGPO</h2>
 Grabs the group policy form target computer for either the computer itself or for the user name provided, assuming the username is on the computer. 
 
+If the computer is powered off the script will present an warning that the computer is off. If the script can run on the computer for whatever reason, then the script will state the data was not collected. 
+
+You also may use the Credentials tag. It is a object and requires as such. 
+
 <h2>Get-GPOName</h2>
+
 Often times I can't remember all the names of group policy but I will remember parts of the name. In this script I can quickly search for group policy names.
 
 <h2>Search-UsersOnComputerForGPO</h2>
